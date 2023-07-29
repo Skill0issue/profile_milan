@@ -8,15 +8,15 @@ const Profile = () => {
     // options Data set import from the backend 
   
     const [options, setOptions] = useState([
-      "option 1",
-      "option 2",
-      "option 3",
-      "option 4",
-      "option 5",
-      "option 6",
-      "option 7",
-      "option 8",
-      "option 9",
+      {name:"option 1",id:1},
+      {name:"option 2",id:2},
+      {name:"option 3",id:3},
+      {name:"option 4",id:4},
+      {name:"option 5",id:5},
+      {name:"option 6",id:6},
+      {name:"option 7",id:7},
+      {name:"option 8",id:8},
+      {name:"option 9",id:9},
     ]);
   
     //User Details Import from Backend
@@ -40,12 +40,26 @@ const Profile = () => {
     };
   
     // Upon submitting the form
+    function sort_by_Id(){
+      return function (elem1, elem2) {
+        if (elem1.id < elem2.id) {
+          return -1;
+        } else if (elem1.id > elem2.id) {
+          return 1;
+        } else {
+          return 0;
+        }
+      };
+    }
+
+
+    
   
     const handleSubmit = (e) => {
       User.events = Events;
       User.competitions = Competitions;
-      Competitions.sort();
-      Events.sort();
+      Competitions.sort(sort_by_Id());
+      Events.sort(sort_by_Id());
      
       e.preventDefault();
   
@@ -149,7 +163,7 @@ const Profile = () => {
                 <Multiselect
                   name="events"
                   id="events"
-                  isObject={false}
+                  isObject={true}
                   placeholder="Select Events"
                   options={options} // Options to display in the dropdown
                   onSelect={setEvents}
@@ -174,7 +188,7 @@ const Profile = () => {
                 <Multiselect
                   name="competitions"
                   id="competitions"
-                  isObject={false}
+                  isObject={true}
                   placeholder="Select Competitons"
                   options={options} // Options to display in the dropdown
                   onSelect={setCompetitions}
