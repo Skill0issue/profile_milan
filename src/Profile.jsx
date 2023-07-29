@@ -44,7 +44,9 @@ const Profile = () => {
     const handleSubmit = (e) => {
       User.events = Events;
       User.competitions = Competitions;
-      console.log(User);
+      Competitions.sort();
+      Events.sort();
+     
       e.preventDefault();
   
       if (User.name === "") {
@@ -65,7 +67,7 @@ const Profile = () => {
         alert("It is required you choose atleast one option from Events & Competitions");
         return false
       }
-      return true;
+      return console.log(User);
     };
   
     // fetching data
@@ -92,7 +94,7 @@ const Profile = () => {
             onSubmit={handleSubmit}
             name="myForm"
           >
-            <div className="w-screen">
+            <div className="w-full">
               <label htmlFor="name" className="form-label">
                 Name
               </label>
@@ -142,7 +144,7 @@ const Profile = () => {
               <option value="B1">Bhabha</option>
               <option value="B2">Bhaskhara</option>
             </select>
-            <div className="container flex w-screen gap-4 basis-1/2 justify-evenly">
+            <div className="container flex w-full gap-4 basis-1/2 justify-evenly">
               <div className="w-1/3">
                 <Multiselect
                   name="events"
