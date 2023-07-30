@@ -7,7 +7,7 @@ const Profile = () => {
 
     // options Data set import from the backend 
   
-    const [options, setOptions] = useState([
+    const options = [
       {name:"option 1",id:1},
       {name:"option 2",id:2},
       {name:"option 3",id:3},
@@ -17,7 +17,7 @@ const Profile = () => {
       {name:"option 7",id:7},
       {name:"option 8",id:8},
       {name:"option 9",id:9},
-    ]);
+    ];
   
     //User Details Import from Backend
   

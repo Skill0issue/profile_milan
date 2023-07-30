@@ -1,6 +1,20 @@
 import React from 'react';
 
 const Calander = () => {
+  var days = document.querySelectorAll(".day");
+  days.forEach(day => {
+    day.addEventListener("click",(e)=>{
+     console.log(e.target.innerText);
+    });
+  })
+
+
+
+
+
+
+
+  
   return (
     <div className='text-xl '>
       <h1>Calender</h1>
@@ -16,36 +30,36 @@ const Calander = () => {
               <div></div>
               <div></div>
               <div></div>
-              <div><button>1</button></div>
-              <div><button>2</button></div>
-              <div><button>3</button></div>
-              <div><button>4</button></div>
-              <div><button>5</button></div>
-              <div><button>6</button></div>
-              <div><button>7</button></div>
-              <div><button>8</button></div>
-              <div><button>9</button></div>
-              <div><button>10</button></div>
-              <div><button>11</button></div>
-              <div><button>12</button></div>
-              <div><button>13</button></div>
-              <div><button>14</button></div>
-              <div><button>15</button></div>
-              <div><button>16</button></div>
-              <div><button>17</button></div>
-              <div><button>18</button></div>
-              <div><button>19</button></div>
-              <div><button>20</button></div>
-              <div><button>21</button></div>
-              <div><button>22</button></div>
-              <div><button>23</button></div>
-              <div><button>24</button></div>
-              <div><button>25</button></div>
-              <div><button>26</button></div>
-              <div><button>27</button></div>
-              <div><button>28</button></div>
-              <div><button>29</button></div>
-              <div><button>30</button></div>
+              <div className="cursor-pointer day"><button type="button">1</button></div>
+              <div className="day"><button type="button">2</button></div>
+              <div className="day"><button type="button">3</button></div>
+              <div className="day"><button type="button">4</button></div>
+              <div className="day"><button type="button">5</button></div>
+              <div className="day"><button type="button">6</button></div>
+              <div className="day"><button type="button">7</button></div>
+              <div className="day"><button type="button">8</button></div>
+              <div className="day"><button type="button">9</button></div>
+              <div className="day"><button type="button">10</button></div>
+              <div className="day"><button type="button">11</button></div>
+              <div className="day"><button type="button">12</button></div>
+              <div className="day"><button type="button">13</button></div>
+              <div className="day"><button type="button">14</button></div>
+              <div className="day"><button type="button">15</button></div>
+              <div className="day"><button type="button">16</button></div>
+              <div className="day"><button type="button">17</button></div>
+              <div className="day"><button type="button">18</button></div>
+              <div className="day"><button type="button">19</button></div>
+              <div className="day"><button type="button">20</button></div>
+              <div className="day"><button type="button">21</button></div>
+              <div className="day"><button type="button">22</button></div>
+              <div className="day"><button type="button">23</button></div>
+              <div className="day"><button type="button">24</button></div>
+              <div className="day"><button type="button">25</button></div>
+              <div className="day"><button type="button">26</button></div>
+              <div className="day"><button type="button">27</button></div>
+              <div className="day"><button type="button">28</button></div>
+              <div className="day"><button type="button">29</button></div>
+              <div className="day"><button type="button">30</button></div>
             </div>
           </div>
       </section>

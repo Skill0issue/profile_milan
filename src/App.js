@@ -1,10 +1,9 @@
 import { Link } from "react-router-dom";
 import Profile from "./Profile";
 import Calandar from './Calander.jsx'
+import Modal from "./Modal";
 
 const App = () => {
-
-
 
   return (
     <>
@@ -21,7 +20,8 @@ const App = () => {
 
       <Profile/>
       <hr className="my-8 border-0 border-b-4 " /> 
-      {/* <Calandar /> */}
+      <Calandar />
+      <Modal/>
     </>
   );
 };
