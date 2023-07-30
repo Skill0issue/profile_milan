@@ -5,16 +5,6 @@ const Calander = () => {
 
   useEffect(() => { 
      var days = document.querySelectorAll(".day");
-  //   days.forEach(day => {
-  //    day.addEventListener("click",(e)=>{
-  //     console.log(e.classList);
-  //   });
-  //   return () => {
-  //   day.removeEventListener("click",(e)=>{
-  //    console.log(e.target);
-  //   })  
-  // };
-  // })
   for (let i = 0; i < days.length; i++) {
     days[i].addEventListener("click", function() {
       days[i].classList.toggle("open");
