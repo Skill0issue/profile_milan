@@ -1,20 +1,29 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const Calander = () => {
-  var days = document.querySelectorAll(".day");
-  days.forEach(day => {
-    day.addEventListener("click",(e)=>{
-     console.log(e.target.innerText);
+
+
+  useEffect(() => { 
+     var days = document.querySelectorAll(".day");
+  //   days.forEach(day => {
+  //    day.addEventListener("click",(e)=>{
+  //     console.log(e.classList);
+  //   });
+  //   return () => {
+  //   day.removeEventListener("click",(e)=>{
+  //    console.log(e.target);
+  //   })  
+  // };
+  // })
+  for (let i = 0; i < days.length; i++) {
+    days[i].addEventListener("click", function() {
+      days[i].classList.toggle("open");
     });
-  })
+  }
+},[])
+ 
 
 
-
-
-
-
-
-  
   return (
     <div className='text-xl '>
       <h1>Calender</h1>
