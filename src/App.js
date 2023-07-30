@@ -22,7 +22,7 @@ const App = () => {
       <Profile/>
       <hr className="my-8 border-0 border-b-4 " /> 
       <Calandar />
-      <Modal/>
+      {/* <Modal/> */}
     </>
   );
 };

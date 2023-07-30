@@ -4,7 +4,7 @@ import React,{useEffect, useState} from 'react'
 const Modal = () => {
 
   function ChangeDisplay() {
-   const close= document.querySelector("Modal").focus();
+   const close= document.querySelector("Modal");
    close.style.SetProperty('display','none');
   }
 
