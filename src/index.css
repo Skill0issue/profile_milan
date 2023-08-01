@@ -1,15 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Hi+Melody&display=swap');
 
+/* Common styles */
+:root {
+  --primary-color: #563d7c;
+  --secondary-color: #b2bec3;
+  --background-color: #f8f9fa;
+  --box-shadow-color: rgba(0, 0, 0, 0.1);
+  --font-family: Arial, sans-serif;
+}
+
 /* CSS for ReactCalendar component */
+
+
+
 /* CSS for ReactCalendar component */
 .calendar-container {
-  font-family: Arial, sans-serif;
+  font-family: var(--font-family);
   max-width: 300px;
   margin: 0 auto;
-  background-color: #f8f9fa;
+  background-color: var(--background-color);
   padding: 20px;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px var(--box-shadow-color);
 }
 
 .calendar-header {
@@ -20,8 +32,22 @@
 }
 
 .calendar-header h2 {
-  color: #563d7c;
+  color: var(--primary-color);
   font-size: 24px;
+}
+
+.calendar-header button {
+  background-color: var(--primary-color);
+  color: #fff;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.calendar-header button:hover {
+  background-color: #4a2d6d; /* Darken the color on hover */
 }
 
 .calendar {
@@ -42,12 +68,12 @@
 }
 
 .calendar-day:hover {
-  background-color: #563d7c;
+  background-color: var(--primary-color);
   color: #fff;
 }
 
 .calendar-day.selected {
-  background-color: #563d7c;
+  background-color: var(--primary-color);
   color: #fff;
 }
 
@@ -55,7 +81,7 @@
   background-color: #fff;
   padding: 20px;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px var(--box-shadow-color);
   margin-top: 10px;
 }
 
@@ -67,13 +93,13 @@
 }
 
 .dialog-header span {
-  color: #563d7c;
+  color: var(--primary-color);
   font-weight: bold;
 }
 
 .events-list h3,
 .competitions-list h3 {
-  color: #563d7c;
+  color: var(--primary-color);
   margin-bottom: 10px;
 }
 
@@ -90,7 +116,7 @@
 
 .events-list h4,
 .competitions-list h4 {
-  color: #563d7c;
+  color: var(--primary-color);
   font-size: 18px;
 }
 
@@ -105,7 +131,80 @@
   margin-bottom: 0;
 }
 
+/* CSS for Profile component */
+.container {
+  font-family: var(--font-family);
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
 
+.form-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.form-label {
+  flex: 0 0 30%; /* Make the labels take up 30% of the width */
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+
+input[type="text"],
+input[type="tel"],
+select {
+  flex: 1; /* Make the inputs take up the remaining space */
+  padding: 6px; /* Changed the padding to make the inputs smaller */
+  border: 1px solid var(--primary-color);
+  border-radius: 4px;
+  font-size: 14px;
+  color: #333;
+}
+
+input[type="tel"]:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 4px rgba(86, 61, 124, 0.5);
+}
+
+select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 4px rgba(86, 61, 124, 0.5);
+}
+
+input[type="submit"] {
+  background-color: var(--primary-color);
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.inputborder {
+  border: 1px solid var(--primary-color);
+  border-radius: 4px;
+  padding: 8px;
+  font-family: var(--font-family); /* Use the same font-family as the calendar */
+}
+
+.multiselect-container {
+  width: 100%;
+  height: auto;
+}
+
+.multiselect-container .multiselect-selected-text {
+  color: #333;
+}
+
+.multiselect-selected-checkbox {
+  background-color: var(--primary-color);
+}
 
 
 
