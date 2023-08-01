@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import Profile from "./Profile";
-import Modal from "./Modal";
 import ReactCalendar from "./ReactCalendar";
 
 
@@ -21,7 +20,6 @@ const App = () => {
 
       <Profile/>
       <hr className="my-8 border-0 border-b-4 " /> 
-      {/* <Modal/> */}
       <ReactCalendar/>
     </>
   );
