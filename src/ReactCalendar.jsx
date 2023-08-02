@@ -60,12 +60,9 @@ const ReactCalendar = () => {
     return calendarDays;
   };
 
-  const renderEventsAndCompetitionsDialog = () => {
+  const renderEventsDialog = () => {
     if (!selectedDate) return null;
-
     const events = eventsData[selectedDate] || [];
-    const competitions = competitionsData[selectedDate] || [];
-
     return (
       <div className="events-dialog">
         <div className="dialog-header">
@@ -88,7 +85,18 @@ const ReactCalendar = () => {
             <p>No events for this day.</p>
           )}
         </div>
-        <div className="competitions-list">
+      </div>
+    );
+  };
+  const renderCompetitionsModal =()=>{
+    if (!selectedDate) return null;
+    const competitions = competitionsData[selectedDate] || [];
+    return(
+      <div className="events-dialog">
+        <div className="dialog-header">
+          <span>{selectedDate}</span>
+        </div>
+      <div className="competitions-list">
           <h3>Competitions:</h3>
           {competitions.length > 0 ? (
             <ul>
@@ -104,9 +112,9 @@ const ReactCalendar = () => {
             <p>No competitions for this day.</p>
           )}
         </div>
-      </div>
+        </div>
     );
-  };
+  }
 
   return (
     <div className="calendar-container">
@@ -115,7 +123,8 @@ const ReactCalendar = () => {
         <button onClick={handleMonthChange}>Change Month</button>
       </div>
       <div className="calendar">{renderCalendar()}</div>
-      {renderEventsAndCompetitionsDialog()}
+      {renderEventsDialog()}
+      {renderCompetitionsModal()}
     </div>
   );
 };
