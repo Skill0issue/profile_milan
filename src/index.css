@@ -2,15 +2,29 @@
 
 /* Common styles */
 :root {
-  --primary-color: #563d7c;
-  --secondary-color: #b2bec3;
-  --background-color: #f8f9fa;
-  --box-shadow-color: rgba(0, 0, 0, 0.1);
+  --primary-color: #a40035;
+  --secondary-color: #39003540;
+  --background-color: #39003540;
+  --box-shadow-color: #39003540;
   --font-family: Arial, sans-serif;
 }
-
-/* CSS for ReactCalendar component */
-
+/* main */
+.main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Make sure the main container takes up at least the full viewport height */
+}
+.content{
+flex:1;
+}
+.svg{
+  width:100vw;
+  height:80%;
+  color:red;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-blend-mode: color-burn;
+}
 
 
 /* CSS for ReactCalendar component */
@@ -18,7 +32,7 @@
   font-family: var(--font-family);
   max-width: 300px;
   margin: 0 auto;
-  background-color: var(--background-color);
+  background: #FDD1AA;
   padding: 20px;
   border-radius: 12px;
   box-shadow: 0 4px 12px var(--box-shadow-color);
@@ -145,11 +159,16 @@
   gap: 8px;
   align-items: center;
 }
-
+.form-group select {
+  flex: 1;
+  padding: 8px; /* Increased padding for better aesthetics */
+  border: 2px solid var(--primary-color); /* Increased border width */
+  border-radius: 8px; /* Increased border radius */
+  font-size: 14px;
+  color: #333;
+}
 .form-label {
-  flex: 0 0 30%; /* Make the labels take up 30% of the width */
-  font-size: 18px;
-  font-weight: bold;
+  @apply p-8 ml-4 font-mono text-base font-light capitalize;
   color: var(--primary-color);
   margin-bottom: 10px;
 }
@@ -157,24 +176,19 @@
 input[type="text"],
 input[type="tel"],
 select {
-  flex: 1; /* Make the inputs take up the remaining space */
-  padding: 6px; /* Changed the padding to make the inputs smaller */
+  flex: 1;
+  padding: 6px;
   border: 1px solid var(--primary-color);
   border-radius: 4px;
   font-size: 14px;
   color: #333;
 }
 
-input[type="tel"]:focus {
-  outline: none;
-  border-color: var(--primary-color);
-  box-shadow: 0 0 4px rgba(86, 61, 124, 0.5);
-}
-
+input[type="tel"]:focus,
 select:focus {
   outline: none;
   border-color: var(--primary-color);
-  box-shadow: 0 0 4px rgba(86, 61, 124, 0.5);
+  box-shadow: 0 0 4px rgba(164, 0, 53, 0.5);
 }
 
 input[type="submit"] {
@@ -186,26 +200,113 @@ input[type="submit"] {
   cursor: pointer;
 }
 
-.inputborder {
-  border: 1px solid var(--primary-color);
-  border-radius: 4px;
-  padding: 8px;
-  font-family: var(--font-family); /* Use the same font-family as the calendar */
-}
-
-.multiselect-container {
+/* Multiselect styles */
+.custom-multiselect-container {
   width: 100%;
   height: auto;
+  border: 2px solid var(--primary-color);
+  background-color: #FDD1AA;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px var(--box-shadow-color);
 }
 
-.multiselect-container .multiselect-selected-text {
-  color: #333;
+.custom-multiselect-selected-text {
+  color: #700035;
 }
 
-.multiselect-selected-checkbox {
-  background-color: var(--primary-color);
+.custom-multiselect-placeholder {
+  color: #700035;
 }
 
+.custom-multiselect-option {
+  background-color: #FDD1AA;
+  color: #700035;
+  border: 2px solid var(--primary-color);
+}
+
+.custom-multiselect-selected {
+  background-color: #700035;
+  color: white;
+}
+.gap{
+  height:40px;
+}
+
+/* Footer styles */
+.footer {
+  background-color: #f9f9f9;
+  padding: 20px;
+  display: flex;
+  justify-content: space-around;
+  margin:auto;
+  width:100vw;
+}
+
+.footer-info {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-location, .footer-contact {
+  color: #000;
+}
+
+.footer-follow-icons {
+  display: flex;
+  gap: 10px;
+  color: #000;
+}
+
+/* Icon styles */
+.icon {
+  font-size: 24px;
+}
+
+/* Heading styles */
+h3 {
+  color: #390035;
+}
+
+/* Link styles */
+a {
+  color: #A11A2B;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+
+
+
+/* Responsive styles */
+@media (max-width: 640px) {
+  .container {
+    padding: 10px;
+  }
+  .form-label {
+    font-size: 14px;
+  }
+  input[type="text"],
+  input[type="tel"],
+  select {
+    padding: 4px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .form-group {
+    width: 100%;
+    max-width: 300px;
+    margin: 10px 0;
+  }
+}
 
 
 
