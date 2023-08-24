@@ -180,7 +180,7 @@ const Profile = () => {
         </div>
         </div>
         <div className="container flex w-full gap-4 sd:flex-col justify-evenly ">
-          <div className="w-full md:w-3/4">
+          <div className="w-3/4">
             <Multiselect
               name="events"
               id="events"
@@ -204,7 +204,7 @@ const Profile = () => {
               </p>
             )}
           </div>
-          <div className="w-full md:w-3/4">
+          <div className="w-3/4">
             <Multiselect
               name="competitions"
               id="competitions"
