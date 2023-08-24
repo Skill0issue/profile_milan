@@ -43,7 +43,6 @@ const ReactCalendar = () => {
     const year = 2023;
     const daysInMonth = new Date(year, month + 1, 0).getDate();
     const calendarDays = [];
-
     for (let i = 1; i <= daysInMonth; i++) {
       const date = `${year}-${(month + 1).toString().padStart(2, '0')}-${i.toString().padStart(2, '0')}`;
       calendarDays.push(
@@ -67,7 +66,7 @@ const ReactCalendar = () => {
       <div className="events-dialog">
         <div className="dialog-header">
           <span>{selectedDate}</span>
-          <button onClick={() => setSelectedDate(null)}>Close</button>
+          <button onClick={() => setSelectedDate(null) }className="close-button" >Close</button>
         </div>
         <div className="events-list">
           <h3>Events:</h3>

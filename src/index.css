@@ -68,7 +68,9 @@ flex:1;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   gap: 5px;
+  max-width: 100%; 
 }
+
 
 .calendar-day {
   width: 32px;
@@ -79,6 +81,12 @@ flex:1;
   align-items: center;
   cursor: pointer;
   transition: background-color 0.2s ease-in-out;
+}
+.day{
+  color: #390035;
+}
+.day:hover{
+  color:white;
 }
 
 .calendar-day:hover {
@@ -98,6 +106,22 @@ flex:1;
   box-shadow: 0 4px 12px var(--box-shadow-color);
   margin-top: 10px;
 }
+
+
+.close-button {
+  background-color: var(--primary-color);
+  color: #fff;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.close-button:hover {
+  background-color: #4a2d6d; /* Darken the color on hover */
+}
+
 
 .dialog-header {
   display: flex;
@@ -145,32 +169,67 @@ flex:1;
   margin-bottom: 0;
 }
 
+
+@media (min-width: 1100px) {
+  .calendar-container {
+    max-width: 500px;
+  }
+
+  .calendar-header h2 {
+    font-size: 28px;
+    margin-left: 8px;
+  }
+
+  .calendar {
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+  }
+
+  .calendar-day {
+    width: 50px;
+    height: 50px;
+    margin-left: 2px;
+    margin-top: 2px;
+  }
+  .day {
+    font-size: 18px;
+    font-weight: 700;
+  }
+}
+
+
 /* CSS for Profile component */
 .container {
   font-family: var(--font-family);
   max-width: 800px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 20px 0;
 }
 
 .form-group {
   display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
+  width: 50%;
+  flex-wrap: nowrap;
+  gap:8px;
   align-items: center;
+  text-align: left;
+  border-bottom:10px;
+  border-left:1rem;
 }
 .form-group select {
   flex: 1;
-  padding: 8px; /* Increased padding for better aesthetics */
-  border: 2px solid var(--primary-color); /* Increased border width */
-  border-radius: 8px; /* Increased border radius */
+  padding: 8px;
+  border: 2px solid var(--primary-color); 
+  border-radius: 8px; 
   font-size: 14px;
   color: #333;
+
 }
 .form-label {
-  @apply p-8 ml-4 font-mono text-base font-light capitalize;
+  @apply pt-8 pb-8 pr-8 pl-8 font-mono text-base font-normal capitalize;
+
+
   color: var(--primary-color);
-  margin-bottom: 10px;
 }
 
 input[type="text"],
@@ -178,8 +237,13 @@ input[type="tel"],
 select {
   flex: 1;
   padding: 6px;
-  border: 1px solid var(--primary-color);
-  border-radius: 4px;
+  border-bottom: 3px solid var(--primary-color);
+  border-top:2px solid var(--primary-color);
+  border-left: 2px solid var(--primary-color);
+  border-right: 2px solid var(--primary-color);
+  box-sizing: border-box;
+  box-shadow: 1px 2px var(--secondary-color);
+  border-radius:4px;
   font-size: 14px;
   color: #333;
 }
@@ -191,18 +255,26 @@ select:focus {
   box-shadow: 0 0 4px rgba(164, 0, 53, 0.5);
 }
 
-input[type="submit"] {
+
+.submit-button {
   background-color: var(--primary-color);
   color: #fff;
   padding: 10px 20px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  margin-top: 20px;
 }
+
+.submit-button:hover {
+  background-color: #4a2d6d;
+}
+
 
 /* Multiselect styles */
 .custom-multiselect-container {
-  width: 100%;
+  width: 95%;
   height: auto;
   border: 2px solid var(--primary-color);
   background-color: #FDD1AA;
@@ -302,29 +374,16 @@ a:hover {
 
 
 /* Responsive styles */
-@media (max-width: 640px) {
-  .container {
-    padding: 10px;
-  }
-  .form-label {
-    font-size: 14px;
-  }
-  input[type="text"],
-  input[type="tel"],
-  select {
-    padding: 4px;
-    font-size: 12px;
-  }
-}
 
-@media (max-width: 600px) {
+
+@media (max-width: 1100px) {
   .container {
     flex-direction: column;
     align-items: center;
   }
   .form-group {
     width: 100%;
-    max-width: 300px;
+    max-width: 95%;
     margin: 10px 0;
   }
 }
@@ -337,9 +396,6 @@ a:hover {
 
 
 @layer base{
-    .form-label{
-        @apply p-8 ml-4 font-mono text-base font-light capitalize ;
-    }
     .inputborder{
         @apply my-4 border-2 border-solid;
     }

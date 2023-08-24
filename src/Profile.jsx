@@ -1,6 +1,5 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import Multiselect from "multiselect-react-dropdown";
-
 
 const Profile = () => {
   // options Data set import from the backend
@@ -77,12 +76,10 @@ const Profile = () => {
       return;
     }
 
-    if (User.competitions === undefined || User.events === []) {
+    if (User.events.length === 0 || User.competitions.length === 0) {
       alert("Please choose at least one option from Events & Competitions.");
       return;
     }
-
-    // Form validation passed, proceed with form submission
 
     User.events.sort(sortByOptionId);
     User.competitions.sort(sortByOptionId);
@@ -121,10 +118,11 @@ const Profile = () => {
   return (
     <div className="container">
       <h1 className="p-8 text-xl font-bold uppercase ">Profile Details</h1>
-      <form onSubmit={handleSubmit} name="myForm">
+      <form onSubmit={handleSubmit} name="myForm" className="flex-col justify-center">
+        <div className="gap-4 mb-8 md:flex sd:w-full layer-1">
         <div className="form-group">
           <label htmlFor="name" className="form-label">
-            Name
+            Name: &nbsp;
           </label>
           <input
             type="text"
@@ -136,8 +134,8 @@ const Profile = () => {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="Email" className="form-label">
-            Email
+          <label htmlFor="Email" className="form-label sd:w-full">
+            Email: &nbsp;
           </label>
           <input
             type="text"
@@ -148,9 +146,11 @@ const Profile = () => {
             disabled
           />
         </div>
+        </div>
+        <div className="gap-4 mb-8 md:flex layer-2 ">
         <div className="form-group">
           <label htmlFor="tel" className="form-label">
-            Phone Number
+            Contact:
           </label>
           <input
             type="tel"
@@ -162,7 +162,7 @@ const Profile = () => {
         </div>
         <div className="form-group">
           <label htmlFor="block" className="form-label">
-            Block
+            Block: &nbsp;
           </label>
           <select
             name="block"
@@ -178,9 +178,9 @@ const Profile = () => {
             <option value="B2">Bhaskhara</option>
           </select>
         </div>
-
-        <div className="container flex w-full gap-4 basis-1/2 justify-evenly sd:flex-col">
-          <div className="w-full md:w-1/2">
+        </div>
+        <div className="container flex w-full gap-4 sd:flex-col justify-evenly ">
+          <div className="w-full md:w-3/4">
             <Multiselect
               name="events"
               id="events"
@@ -198,8 +198,13 @@ const Profile = () => {
               optionsListCssClass="custom-multiselect-option"
               groupBy="category"
             />
+            {User.events.length === 0 && (
+              <p className="mt-2 text-red-500">
+                Please select at least one event.
+              </p>
+            )}
           </div>
-          <div className="w-full md:w-1/2">
+          <div className="w-full md:w-3/4">
             <Multiselect
               name="competitions"
               id="competitions"
@@ -217,9 +222,14 @@ const Profile = () => {
               optionsListCssClass="custom-multiselect-option"
               groupBy="category"
             />
+            {User.competitions.length === 0 && (
+              <p className="mt-2 text-red-500">
+                Please select at least one competition.
+              </p>
+            )}
           </div>
         </div>
-        <button type="submit" onSubmit={handleSubmit}>
+        <button type="submit" onSubmit={handleSubmit} className="submit-button" >
           Submit
         </button>
       </form>
