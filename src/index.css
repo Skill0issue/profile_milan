@@ -88,6 +88,16 @@ flex:1;
 .day:hover{
   color:white;
 }
+.calender-week-day{
+  display: flex;
+  align-items: right;
+}
+.week-day{
+  text-align: center;
+  font-weight: 700;
+  padding:8px;
+  font-size:16px;
+}
 
 .calendar-day:hover {
   background-color: var(--primary-color);

@@ -43,11 +43,22 @@ const ReactCalendar = () => {
     const year = 2023;
     const daysInMonth = new Date(year, month + 1, 0).getDate();
     const calendarDays = [];
+    const daysArray = currentMonth === 'September' ? ["Fr", "St", "Su", "Mn", "Tu", "Wd", "Th"] : ["Sn", "Mn", "Tu", "Wd", "Th", "Fr", "St"];
+    for(let i=0;i<7;i++){
+      calendarDays.push(
+        <div
+          key={i}
+          className="calendar-week-day"
+        >
+          <div className='week-day'>{daysArray[i]}</div>
+        </div>
+      );
+    }
     for (let i = 1; i <= daysInMonth; i++) {
       const date = `${year}-${(month + 1).toString().padStart(2, '0')}-${i.toString().padStart(2, '0')}`;
       calendarDays.push(
         <div
-          key={i}
+          key={i+6}
           className={`calendar-day ${selectedDate === date ? 'selected' : ''}`}
           onClick={() => handleDateClick(date)}
         >
